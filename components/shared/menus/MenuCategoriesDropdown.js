@@ -61,6 +61,7 @@ const MenuCategoriesDropdown = () => {
             <div className='categories_mini'>
            <div>
            {category?.map((c) => {
+            console.log(c.id);
                  return (
                      <>
                      <a href="#" onClick={()=> ShowAllMin(c.id)} className="category__content_mini">

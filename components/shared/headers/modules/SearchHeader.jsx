@@ -44,7 +44,7 @@ const SearchHeader = () => {
 
     function handleSubmit(e) {
         e.preventDefault();
-        Router.push(`/search?keyword=${keyword}`);
+        Router.push(`/search/${keyword}`);
     }
 
     useEffect(() => {

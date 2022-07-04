@@ -13,15 +13,7 @@ function Error({ statusCode }) {
                     <div className="ps-section__content">
                         <figure>
                             <img src="/static/img/404.jpg" alt="" />
-                            <h3>Ohh! Page not found</h3>
-                            <p>
-                                It seems we can't find what you're looking for.{' '}
-                                <br />
-                                Go back to
-                                <Link href="/">
-                                    <a> Homepage</a>
-                                </Link>
-                            </p>
+                            <h3>Страницы не найденно</h3>
                         </figure>
                     </div>
                 </div>

@@ -19,6 +19,7 @@
 
 ```bash
 npm install
+node -v 14.0.0
 ```
 
 or Yarn

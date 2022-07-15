@@ -31,12 +31,10 @@ const HomeElectronicsPage = () => {
                 headers: headers,
             })
             .then((response) => {
-                setCategor(response.data["hydra:member"][1].data);
-                setCards(response.data["hydra:member"][2].data)
-                setElectronics(response.data["hydra:member"][5].data)
-                setFirstBanner(response.data["hydra:member"][0].url);
-                setSecondtBanner(response.data["hydra:member"][10].url)
-                console.log(response.data["hydra:member"]);
+                setCategor(response.data["hydra:member"][1].data.slice(0, 4));
+                setSecondtBanner('/static/2.jpg')
+                setFirstBanner('/static/3.jpeg');
+                setThreeBanner('/static/1.jpg');
             })
             .catch((error) => {
                 console.log(error);
@@ -56,6 +54,10 @@ const HomeElectronicsPage = () => {
     const [electronic, setElectronics] = useState();
     const [PCtech, setPCtch] = useState();
     const [clothes, setClothes] = useState();
+    const [threeCategory, setThreeCategory] = useState();
+    const [fourCategory, setFourCategory] = useState();
+
+    const [threeBanner,setThreeBanner]=useState()
 
     useEffect(() => {
         const headers = {
@@ -63,7 +65,7 @@ const HomeElectronicsPage = () => {
         };
         axios
             .get(
-                `${config.mainUrl}products?page=1&itemsPerPage=30&category=112`,
+                `${config.mainUrl}products?page=1&itemsPerPage=30&category=1`,
                 {
                     headers: headers
                 }
@@ -76,13 +78,67 @@ const HomeElectronicsPage = () => {
             });
         axios
             .get(
-                `${config.mainUrl}products?page=1&itemsPerPage=30&category=112`,
+                `${config.mainUrl}products?page=1&itemsPerPage=30&category=67`,
                 {
                     headers: headers
                 }
             )
             .then((response) => {
                 setClothes(response.data['hydra:member']);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+        axios
+            .get(
+                `${config.mainUrl}products?page=1&itemsPerPage=30&category=112`,
+                {
+                    headers: headers
+                }
+            )
+            .then((response) => {
+                setThreeCategory(response.data['hydra:member']);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+        axios
+            .get(
+                `${config.mainUrl}products?page=1&itemsPerPage=30&category=152`,
+                {
+                    headers: headers
+                }
+            )
+            .then((response) => {
+                setFourCategory(response.data['hydra:member']);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+
+
+        axios
+            .get(
+                `${config.mainUrl}products?page=1&itemsPerPage=30&order%5BcreatedAt%5D=desc`,
+                {
+                    headers: headers
+                }
+            )
+            .then((response) => {
+                setElectronics(response.data['hydra:member']);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+        axios
+            .get(
+                `${config.mainUrl}products?page=1&itemsPerPage=30&order%5BviewCount%5D=desc`,
+                {
+                    headers: headers
+                }
+            )
+            .then((response) => {
+                setCards(response.data['hydra:member']);
             })
             .catch((error) => {
                 console.log(error);
@@ -101,25 +157,38 @@ const HomeElectronicsPage = () => {
                 /> */}
                 <HotSale
                     collectionSlug="electronics-best-sellers"
-                    title="Хиты продаж"
+                    title="Популярные"
                     links={cards}
                 />
-                <ElectronicPromotions2 urlImg={secondBanner} />
                 <ElectronicProductGroupWithCarousel
                     collectionSlug="electronic_computer_technology"
                     title="Новинки"
                     links={electronic}
                 />
+                <ElectronicPromotions2 urlImg={secondBanner} />
+
                 <ElectronicProductGroupWithCarousel
                     categorySlug="consumer-electrics"
-                    title="Компьютерная техника"
+                    title="Электроника"
                     links={PCtech}
                 />
                 <ElectronicProductGroupWithCarousel
                     collectionSlug="electronics-cameras-and-videos"
-                    title="Одежда, обувь и аксессуары"
+                    title="Бытовая техника"
                     links={clothes}
                 />
+                <ElectronicPromotions2 urlImg={threeBanner} />
+                <ElectronicProductGroupWithCarousel
+                    categorySlug="consumer-electrics"
+                    title="Компьютерная техника"
+                    links={threeCategory}
+                />
+                <ElectronicProductGroupWithCarousel
+                    collectionSlug="electronics-cameras-and-videos"
+                    title="Строительство и ремонт"
+                    links={fourCategory}
+                />
+
                 {/* <SiteFeatures /> */}
             </main>
         </PageContainer>

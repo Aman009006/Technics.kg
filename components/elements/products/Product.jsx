@@ -10,7 +10,7 @@ const Product = ({ product }) => {
         <div className="ps-product">
             <div className="ps-product__thumbnail">
                 <Link href={`/product/${product.slug}`} as={`/product/${product.slug}`}>
-                    <a>{product.mainImageUrl ? <img className='category__img_main' src={product.mainImageUrl} alt="" /> : <img className='category__img_main' src='/images/photo.jpeg'/>}</a>
+                    <a>{product.mainImageUrl ? <img className='category__img_main' src={product.mainImageUrl} alt={product.name} /> : <img className='category__img_main' src='/images/photo.jpeg'/>}</a>
                 </Link>
                 {badge(product)}
                 <ModuleProductActions product={product} />

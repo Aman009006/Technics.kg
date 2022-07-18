@@ -63,6 +63,7 @@ const HomeElectronicsPage = () => {
         const headers = {
             'api-token': config.apiToken
         };
+       
         axios
             .get(
                 `${config.mainUrl}products?page=1&itemsPerPage=30&category=1`,

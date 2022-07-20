@@ -162,7 +162,7 @@ const ModuleDetailShoppingActions = ({
                     <div className='custom__btn_w'>
                <a
                     className="mobile__cus_btn  "
-                    href={`https://wa.me/996509155155?text=Добрый%20день%20!%20я%20хотел%20заказать%20Techniks.kg${Router.asPath}`}
+                    href={`https://wa.me/996553413333?text=Добрый%20день%20!%20я%20хотел%20заказать%20https://technics.kg${Router.asPath}`}
                     target="_blank"
                   >
                     Купить по WhatsApp
@@ -196,7 +196,7 @@ const ModuleDetailShoppingActions = ({
                 </div>
                 <a
                     className="ps-btn ps-btn--black custom__btn_ whatsApp"
-                    href={`https://wa.me/996509155155?text=Добрый%20день%20!%20я%20хотел%20заказать%20Techniks.kg${Router.asPath}`}
+                    href={`https://wa.me/996553413333?text=Добрый%20день%20!%20я%20хотел%20заказать%20https://technics.kg${Router.asPath}`}
                     target="_blank"
                   >
                     Купить по WhatsApp

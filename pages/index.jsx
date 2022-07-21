@@ -31,7 +31,7 @@ const HomeElectronicsPage = () => {
                 headers: headers,
             })
             .then((response) => {
-                setCategor(response.data["hydra:member"][1].data.slice(0, 4));
+                setCategor(response.data["hydra:member"][1].data.slice(0, 3));
                 setSecondtBanner('/static/2.jpg')
                 setFirstBanner('/static/3.jpeg');
                 setThreeBanner('/static/1.jpg');

@@ -19,7 +19,7 @@ const MenuCategoriesDropdown = () => {
                 headers: headers,
             })
             .then((response) => {
-                setCategor(response.data["hydra:member"][1].data.slice(0, 4));
+                setCategor(response.data["hydra:member"][1].data.slice(0, 3));
             })
             .catch((error) => {
                 console.log(error);

@@ -68,7 +68,7 @@ const ShopDefaultPage = () => {
         })
         .then((response) => {
        
-            setSecondtBanner(response.data["hydra:member"][10].url)
+            setSecondtBanner('/static/2.jpg')
         })
         .catch((error) => {
             console.log(error);

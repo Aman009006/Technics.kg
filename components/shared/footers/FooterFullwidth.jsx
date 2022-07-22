@@ -15,6 +15,7 @@ const FooterFullwidth = () => (
             <div className="only">
             <a href="/aboutus">О нас</a>
             <a href="/publicoff"> Публичная оферта</a>
+            <a href="/delivery" >Доставка</a>
             <a href="https://2gis.kg/bishkek/firm/70000001062065075?m=74.644652%2C42.878616%2F16"  target="_blank">Адрес: Фрунзе 54</a>
             </div>
           </div>

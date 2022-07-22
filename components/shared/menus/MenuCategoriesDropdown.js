@@ -76,7 +76,7 @@ const MenuCategoriesDropdown = () => {
            {category?.map((c) => {
                  return (
                      <>
-                     <a href="#" onClick={()=> ShowAllMin(c.id)} className="category__content_mini">
+                     <a href="#" onMouseEnter={()=> ShowAllMin(c.id)} className="category__content_mini">
                          <p className='category__text_mini'>{c.name}</p>
                     </a>
                     </>
@@ -85,7 +85,7 @@ const MenuCategoriesDropdown = () => {
              {mini?.slice(4,6)?.map((c) => {
                  return (
                      <>
-                     <a href="#" onClick={()=> ShowAllMin(c.id)} className="category__content_mini">
+                     <a href="#" onMouseEnter={()=> ShowAllMin(c.id)} className="category__content_mini">
                          <p className='category__text_mini'>{c.name}</p>
                     </a>
                     </>

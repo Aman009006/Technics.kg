@@ -21,8 +21,8 @@ const HeaderDefault = () => {
             <div className="header__top">
                 <div className="ps-container">
                    <div className="header__leftt">
+                        <MenuCategoriesDropdown/>
                         <Logo />
-                    <MenuCategoriesDropdown/>
                     </div>
                     <div className="header__center">
                         <SearchHeader />

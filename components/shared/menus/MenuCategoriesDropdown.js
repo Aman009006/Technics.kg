@@ -73,10 +73,18 @@ const MenuCategoriesDropdown = () => {
 
             <div className='mini__mini'>
             {isShownDoth?.map((c) => {
+                console.log(c);
                  return (
                      <>
                      <a href={`/category/${c.slug}-${c.id}`} className="category__content_mini_m">
-                         <p className='category__text_mini_m'>{c.name}</p>
+                        <p className=''>{c.name}</p>
+                         {/* {c?.categories.map((cc)=>{
+                            return(
+                                <>
+                                <p className='category__text_mini_m'>{cc.name}</p>
+                                </>
+                            )
+                         })} */}
                     </a>
                     </>
                 );

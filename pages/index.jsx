@@ -15,7 +15,6 @@ import { config } from '~/config';
 import ShopBanner from '~/components/partials/shop/ShopBanner';
 
 const HomeElectronicsPage = () => {
-    const [category, setCategor] = useState();
     const [firstBanner, setFirstBanner] = useState();
     const [secondBanner, setSecondtBanner] = useState();
 
@@ -31,7 +30,6 @@ const HomeElectronicsPage = () => {
                 headers: headers,
             })
             .then((response) => {
-                setCategor(response.data["hydra:member"][1].data.slice(0, 3));
                 setSecondtBanner('/static/2.jpg')
                 setFirstBanner('/static/3.jpeg');
                 setThreeBanner('/static/1.jpg');
@@ -151,7 +149,7 @@ const HomeElectronicsPage = () => {
                 <div className="container mt-25 mb-25">
                 <ShopBanner urlImg={firstBanner} />
                 </div>
-                <ElectronicTopCategories category={category} />
+                <ElectronicTopCategories  />
                 {/* <ProductGroupDealOfDay
                     categorySlug="computers-and-technologies"
                     boxed={true}

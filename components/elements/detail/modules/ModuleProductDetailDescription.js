@@ -11,7 +11,6 @@ const ModuleProductDetailDescription = ({ product }) => (
             <li>Код товара : {product.productCode}</li>
             <li>Цвет : {product.colorName}</li>
             {/* <li> 20 hours of portable capabilities</li> */}
-            <li>Продано : {product.soldQuantity} штук</li>
            {product.size && <li>Размер : {product.size}</li>}
         </ul>
     </div>

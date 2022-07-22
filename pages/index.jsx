@@ -18,6 +18,7 @@ const HomeElectronicsPage = () => {
     const [firstBanner, setFirstBanner] = useState();
     const [secondBanner, setSecondtBanner] = useState();
 
+    const [category, setCategor] = useState();
 
 
     useEffect(() => {
@@ -30,6 +31,8 @@ const HomeElectronicsPage = () => {
                 headers: headers,
             })
             .then((response) => {
+                setCategor(response.data['hydra:member'][1].data)
+                console.log(response.data['hydra:member'][1].data);
                 setSecondtBanner('/static/2.jpg')
                 setFirstBanner('/static/3.jpeg');
                 setThreeBanner('/static/1.jpg');
@@ -149,7 +152,7 @@ const HomeElectronicsPage = () => {
                 <div className="container mt-25 mb-25">
                 <ShopBanner urlImg={firstBanner} />
                 </div>
-                <ElectronicTopCategories  />
+                <ElectronicTopCategories category={category} />
                 {/* <ProductGroupDealOfDay
                     categorySlug="computers-and-technologies"
                     boxed={true}

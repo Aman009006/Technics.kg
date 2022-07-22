@@ -8,6 +8,7 @@ import {config} from "~/config"
 const MenuCategoriesDropdown = () => {
     const [category, setCategor] = useState();
 
+    const [mini,setMini]=useState()
 
     useEffect(() => {
         const headers = {
@@ -19,7 +20,19 @@ const MenuCategoriesDropdown = () => {
                 headers: headers,
             })
             .then((response) => {
-                setCategor(response.data["hydra:member"][1].data.slice(0, 3));
+                setCategor(response.data["hydra:member"][1].data.slice(0, 2));
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+
+            axios
+            .get(`${config.mainUrl}categories/by-parent?page=1&itemsPerPage=30&parent.id=1`, {
+                headers: headers,
+            })
+            .then((response) => {
+                setMini(response.data['hydra:member']);
+                
             })
             .catch((error) => {
                 console.log(error);
@@ -38,7 +51,6 @@ const MenuCategoriesDropdown = () => {
         })
         .then((response) => {
           setIsShownDoth(response.data["hydra:member"]);
-          console.log(response.data["hydra:member"]);
         })
         .catch((error) => {
             console.log(error);
@@ -60,6 +72,7 @@ const MenuCategoriesDropdown = () => {
          <div className='container mauto'>
             <div className='categories_mini'>
            <div>
+
            {category?.map((c) => {
                  return (
                      <>
@@ -69,11 +82,20 @@ const MenuCategoriesDropdown = () => {
                     </>
                 );
             })}
+             {mini?.slice(4,6)?.map((c) => {
+                 return (
+                     <>
+                     <a href="#" onClick={()=> ShowAllMin(c.id)} className="category__content_mini">
+                         <p className='category__text_mini'>{c.name}</p>
+                    </a>
+                    </>
+                );
+            })}
+
            </div>
 
             <div className='mini__mini'>
             {isShownDoth?.map((c) => {
-                console.log(c);
                  return (
                      <>
                      <a href={`/category/${c.slug}-${c.id}`} className="category__content_mini_m">

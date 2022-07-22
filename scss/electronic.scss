@@ -543,6 +543,7 @@ a {
     line-height: 24px;
   }
   .category__img_main{
-    min-width: 196px;
-    min-height: 196px;
+    width: 196px !important;
+    height: 196px !important;
+    object-fit: cover;
   }

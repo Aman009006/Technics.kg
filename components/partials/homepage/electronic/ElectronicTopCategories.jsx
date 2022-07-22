@@ -5,30 +5,28 @@ import axios from 'axios'
 import { config } from '~/config';
 
 
-function ElectronicTopCategories() {
+function ElectronicTopCategories({category}) {
 
-    const [category, setCategor] = useState();
-    
+    const [mini,setMini]=useState()
+
     useEffect(() => {
         const headers = {
             'api-token': config.apiToken
         };
 
         axios
-            .get(`${config.mainUrl}categories/by-parent?page=1&itemsPerPage=30&parent.id=52`, {
+            .get(`${config.mainUrl}categories/by-parent?page=1&itemsPerPage=30&parent.id=1`, {
                 headers: headers,
             })
             .then((response) => {
-                setCategor(response.data["hydra:member"]);
-                console.log(response.data["hydra:member"]);
+                setMini(response.data['hydra:member']);
+                
             })
             .catch((error) => {
                 console.log(error);
             });
     }, []);
-
-
-    console.log(category);
+  
 
     const [showC, setShowC] = useState(false);
     return (
@@ -37,17 +35,25 @@ function ElectronicTopCategories() {
                 <h3>Категории</h3>
                 <div className="row row__custom">
                     <div className="acc__content">
-                        {category?.map((c) => {
-                            return (
-                               <>
-                                <a href={`/category/${c.slug}-${c.id}`} className="category__content">
-                                    <img className='category__img_' src={`${c.imageUrl}`} alt="" />
-                                    <p className='category__text'>{c.name}</p>
-                                </a>
-                            
-                               </>
-                            );
-                        })}
+                        
+                                {category?.slice(0,2)?.map((c)=>{
+                                    return(
+                                        <a href={`/category/${c?.slug}-${c?.id}`} className="category__content">
+                                            <img className='category__img_' src={`${c?.imageUrl}`} alt="" />
+                                            <p className='category__text'>{c?.name}</p>
+                                        </a>
+                                    )
+                                })}
+
+                               {mini?.slice(4,6)?.map((cc)=>{
+                                return(
+                                    <a href={`/category/${cc?.slug}-${cc?.id}`} className="category__content">
+                                    <img className='category__img_' src={`${cc?.imageUrl}`} alt="" />
+                                    <p className='category__text'>{cc?.name}</p>
+                                    </a>
+                                )
+                               })}
+                               
                     </div>
                 </div>
             </div>

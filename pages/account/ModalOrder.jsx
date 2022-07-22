@@ -38,7 +38,8 @@ function ModalOrder({ show, setShow }) {
                     phone: `+996${Number(dataUserNumber)}`,
                     name: `${dataUserName}`,
                     address: `${dataUserAdres}`,
-                    isDelivery: true,
+                    isDelivery: false,
+                    isOnlinePayment: false,
                 },
             };
 

@@ -489,7 +489,7 @@ a {
 @media only screen and (max-width: 600px) {
     .category__content{
         width: 150px;
-        height: 130px;
+        max-height: 150px;
         .category__img_{
             width: 100px;
         }

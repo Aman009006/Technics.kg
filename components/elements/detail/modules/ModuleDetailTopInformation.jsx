@@ -7,7 +7,7 @@ const ModuleDetailTopInformation = ({ product }) => {
     let priceView;
     console.log(product);
 
-    if (product.is_sale) {
+    if (product?.is_sale) {
         priceView = (
             <h4 className="ps-product__price sale">
                 <del className="mr-2">&{product.sale_price}</del>$
@@ -15,11 +15,11 @@ const ModuleDetailTopInformation = ({ product }) => {
             </h4>
         );
     } else {
-        priceView = <h4 className="ps-product__price">{product.price} сом</h4>;
+        priceView = <h4 className="ps-product__price">{product?.price} сом</h4>;
     }
     return (
         <header>
-            <h1>{product.name}</h1>
+            <h1>{product?.name}</h1>
             {/* <div className="ps-product__meta">
                 <p>
                     Brand:

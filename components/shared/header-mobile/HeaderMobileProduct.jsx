@@ -4,26 +4,28 @@ import Link from 'next/link';
 import { stickyHeader } from '~/utilities/common-helpers';
 
 const HeaderMobileProduct = () => {
-    const stickyHeader = () => {
-        let number =
-            window.pageXOffset ||
-            document.documentElement.scrollTop ||
-            document.body.scrollTop ||
-            0;
-        const header = document.getElementById('header-mobile');
-        if (header !== null) {
-            if (number >= 300) {
-                header.classList.add('header--sticky');
-            } else {
-                header.classList.remove('header--sticky');
-            }
-        }
-    };
-    useEffect(() => {
-        if (process.browser) {
-            window.addEventListener('scroll', stickyHeader);
-        }
-    }, []);
+
+    // const stickyHeader = () => {
+    //     let number =
+    //         window.pageXOffset ||
+    //         document.documentElement.scrollTop ||
+    //         document.body.scrollTop ||
+    //         0;
+    //     const header = document.getElementById('header-mobile');
+    //     if (header !== null) {
+    //         if (number >= 300) {
+    //             header.classList.add('header--sticky');
+    //         } else {
+    //             header.classList.remove('header--sticky');
+    //         }
+    //     }
+    // };
+
+    // useEffect(() => {
+    //     if (process.browser) {
+    //         window.addEventListener('scroll', stickyHeader);
+    //     }
+    // }, []);
 
     return (
         <header

@@ -35,17 +35,13 @@ const ModuleEcomerceCartItems = ({ ecomerce, cartItems }) => {
                 "count": 0
             },
         };
-        console.log(item.product.id);
-
 
         axios(options)
             .then((response) => {
-                console.log(response.status);
             })
             .catch((err) => {
                 console.log(err);
             });
-            // location.reload()
 
     }
 

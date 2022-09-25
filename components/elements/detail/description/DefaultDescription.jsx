@@ -18,7 +18,7 @@ const DefaultDescription = ({ product }) => {
         <div className="ps-product__content ps-tab-root">
             <Tabs defaultActiveKey="1">
                 <TabPane tab="Описание" key="1">
-                    {product.description ? (
+                    {product?.description ? (
                         <PartialDescription product={product} />
                     ) : (
                         <div>Описание отсутствует</div>

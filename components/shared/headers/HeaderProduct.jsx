@@ -9,11 +9,11 @@ import Link from 'next/link';
 import Logo from '~/components/elements/common/Logo';
 
 const HeaderProduct = ({ product }) => {
-    useEffect(() => {
-        if (process.browser) {
-            window.addEventListener('scroll', stickyHeader);
-        }
-    }, []);
+    // useEffect(() => {
+    //     if (process.browser) {
+    //         window.addEventListener('scroll', stickyHeader);
+    //     }
+    // }, []);
 
     return (
         <header

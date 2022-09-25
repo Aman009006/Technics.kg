@@ -37,7 +37,6 @@ const ProductDefaultPage = () => {
             })
             .then((response) => {
                 setCards(response.data)
-                console.log(response.data,"login");
                 setProduct(response.data)
             })
             .catch((error) => {
@@ -100,8 +99,6 @@ const ProductDefaultPage = () => {
     } else {
         productView = <SkeletonProductDetail />;
     }
-
-
 
     return (
         <PageContainer

@@ -41,16 +41,18 @@ const ShoppingCartScreen = ({ ecomerce }) => {
             .catch((error) => {
                 console.log(error);
             });
-
-            setTotalProductsPrice(
-                products?.reduce(
-                    (count, product) => count + product.product.count * product.product.price,
-                    0
-                )
-            );
     }, []);
+    
+    useEffect(()=>{
+        setTotalProductsPrice(
+            products?.reduce(
+                (count, product) => count + product.product.count * product.product.price,
+                0
+            )
+        );
+    })
 
-    // console.log(products);
+    console.log(totalProductsPrice,'bnjuj');
 
 
     useEffect(() => {

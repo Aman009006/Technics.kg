@@ -62,13 +62,13 @@ export default function useProduct() {
         },
         price: (payload) => {
             let view;
-            if (payload.sale_price) {
+            if (payload?.sale_price) {
                 view = (
                     <p className="ps-product__price sale">
-                        {formatCurrency(payload.sale_price)}
+                        {formatCurrency(payload?.sale_price)}
                         <span>сом</span>
                         <del className="ml-2">
-                            {formatCurrency(payload.price)}
+                            {formatCurrency(payload?.price)}
                             <span>сом</span>
                         </del>
                     </p>
@@ -76,7 +76,7 @@ export default function useProduct() {
             } else {
                 view = (
                     <p className="ps-product__price">
-                        {formatCurrency(payload.price)}
+                        {formatCurrency(payload?.price)}
                         <span> сом</span>
                     </p>
                 );

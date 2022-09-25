@@ -7,31 +7,30 @@ import {
     setWishlistTtems,
     setCartItems,
 } from '~/store/ecomerce/action';
-import axios from 'axios'
+import axios from 'axios';
 
 export default function useEcomerce() {
+    const [cards, setCards] = useState();
 
-    const [cards,setCards]=useState()
+    // useEffect(() => {
+    //     const headers = {
+    //         'api-token': 'f1cdecbeba8f4a1547d3dc0db9376fec',
+    //     };
 
-    useEffect(() => {
-        const headers = {
-            'api-token' : 'f1cdecbeba8f4a1547d3dc0db9376fec'
-          }
-          
-          axios.get( "https://docs.stores.kg/api/products?page=1&itemsPerPage=30&category=67", {
-              headers: headers
-            })
-            .then((response) => {
-                setCards(response.data["hydra:member"])
-   
-            })
-            .catch((error) => {
-             console.log(error);
-            })
-
-            
-            
-       }, []);
+    //     axios
+    //         .get(
+    //             'https://docs.stores.kg/api/products?page=1&itemsPerPage=30&category=67',
+    //             {
+    //                 headers: headers,
+    //             }
+    //         )
+    //         .then((response) => {
+    //             setCards(response.data['hydra:member']);
+    //         })
+    //         .catch((error) => {
+    //             console.log(error);
+    //         });
+    // }, []);
 
     const dispatch = useDispatch();
     const [loading, setLoading] = useState(false);

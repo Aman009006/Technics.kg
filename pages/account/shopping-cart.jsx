@@ -41,16 +41,15 @@ const ShoppingCartScreen = ({ ecomerce }) => {
             .catch((error) => {
                 console.log(error);
             });
-    }, [products]);
 
-    useEffect(()=>{
-        setTotalProductsPrice(
-            products?.reduce(
-                (count, product) => count + product.product.count * product.product.price,
-                0
-            )
-        );
-    },[products])
+            setTotalProductsPrice(
+                products?.reduce(
+                    (count, product) => count + product.product.count * product.product.price,
+                    0
+                )
+            );
+    }, []);
+
     // console.log(products);
 
 

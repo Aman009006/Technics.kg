@@ -29,7 +29,7 @@ const MiniCart = ({ ecomerce }) => {
             .catch((error) => {
              console.log(error);
             })
-    },[products])
+    },[])
     function sendToBasket(item) {
         console.log(item);
         let authToken = localStorage.getItem('authToken')

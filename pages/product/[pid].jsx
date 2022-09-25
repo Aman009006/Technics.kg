@@ -44,7 +44,6 @@ const ProductDefaultPage = () => {
              console.log(error);
             })
        }, [asPath]);
-    //    console.log(cards); 
 
     async function getProduct(pid) {
         setLoading(true);
@@ -65,7 +64,6 @@ const ProductDefaultPage = () => {
     }, [pid]);
     const [cards,setCards]=useState()
 
-  
 
     const breadCrumb = [
         {
@@ -115,15 +113,8 @@ const ProductDefaultPage = () => {
                     <div className="ps-page__container">
                         <div className="ps-page__left">{productView}</div>
                     </div>
-
-                    {/* <CustomerBought
-                        layout="fullwidth"
-                        collectionSlug="deal-of-the-day"
-                    /> */}
-                    {/* <RelatedProduct collectionSlug="shop-recommend-items" /> */}
                 </div>
             </div>
-            {/* <Newletters /> */}
         </PageContainer>
     );
 };

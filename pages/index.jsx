@@ -15,8 +15,8 @@ import { config } from '~/config';
 import ShopBanner from '~/components/partials/shop/ShopBanner';
 
 const HomeElectronicsPage = () => {
-    const [firstBanner, setFirstBanner] = useState();
-    const [secondBanner, setSecondtBanner] = useState();
+    const [firstBanner, setFirstBanner] = useState('/static/3.jpeg');
+    const [secondBanner, setSecondtBanner] = useState('/static/2.jpg');
 
     const [category, setCategor] = useState();
 
@@ -32,10 +32,6 @@ const HomeElectronicsPage = () => {
             })
             .then((response) => {
                 setCategor(response.data['hydra:member'][1].data)
-                console.log(response.data['hydra:member'][1].data);
-                setSecondtBanner('/static/2.jpg')
-                setFirstBanner('/static/3.jpeg');
-                setThreeBanner('/static/1.jpg');
             })
             .catch((error) => {
                 console.log(error);
@@ -58,7 +54,7 @@ const HomeElectronicsPage = () => {
     const [threeCategory, setThreeCategory] = useState();
     const [fourCategory, setFourCategory] = useState();
 
-    const [threeBanner,setThreeBanner]=useState()
+    const [threeBanner,setThreeBanner]=useState('/static/1.jpg')
 
     useEffect(() => {
         const headers = {
@@ -117,8 +113,6 @@ const HomeElectronicsPage = () => {
             .catch((error) => {
                 console.log(error);
             });
-
-
         axios
             .get(
                 `${config.mainUrl}products?page=1&itemsPerPage=30&order%5BcreatedAt%5D=desc`,
@@ -146,6 +140,7 @@ const HomeElectronicsPage = () => {
                 console.log(error);
             });
     }, []);
+
     return (
         <PageContainer title="Technics.kg">
             <main id="homepage-7">

@@ -44,7 +44,7 @@ const ShopDefaultPage = () => {
             });
             categoryId > 0 && ( axios
             .get(
-                `${config.mainUrl}categories/by-parent?page=1&itemsPerPage=30&parent.id=${categoryId}`,
+                `${config.mainUrl}by-parent/categories?page=1&itemsPerPage=30&parent.id=${categoryId}`,
                 {
                     headers: headers,
                 }
@@ -87,7 +87,7 @@ const ShopDefaultPage = () => {
                                     <p className="category__text">{c.name}</p>
                                     <img
                                         className="category__img_"
-                                        src={`${c.imageUrl}`}
+                                        src={`${c.imagePath}`}
                                         alt=""
                                     />
                                 </a>

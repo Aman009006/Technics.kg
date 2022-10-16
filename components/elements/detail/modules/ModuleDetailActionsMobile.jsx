@@ -35,7 +35,6 @@ const ModuleDetailActionsMobile = ({ ecomerce, product }) => {
 
         axios(options)
             .then((response) => {
-                console.log(response.status);
             })
             .catch((err) => {
                 console.log(err);
@@ -61,7 +60,6 @@ const ModuleDetailActionsMobile = ({ ecomerce, product }) => {
 
         axios(options)
             .then((response) => {
-                console.log(response.status);
             })
             .catch((err) => {
                 console.log(err);

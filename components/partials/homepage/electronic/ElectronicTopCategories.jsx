@@ -15,7 +15,7 @@ function ElectronicTopCategories({category}) {
         };
 
         axios
-            .get(`${config.mainUrl}categories/by-parent?page=1&itemsPerPage=30&parent.id=1`, {
+            .get(`${config.mainUrl}by-parent/categories?page=1&itemsPerPage=30&parent.id=1`, {
                 headers: headers,
             })
             .then((response) => {
@@ -36,10 +36,10 @@ function ElectronicTopCategories({category}) {
                 <div className="row row__custom">
                     <div className="acc__content">
                         
-                                {category?.slice(0,2)?.map((c)=>{
+                                {category?.slice(0,3)?.map((c)=>{
                                     return(
                                         <a href={`/category/${c?.slug}-${c?.id}`} className="category__content">
-                                            <img className='category__img_' src={`${c?.imageUrl}`} alt="" />
+                                            <img className='category__img_' src={`${c?.imagePath}`} alt="" />
                                             <p className='category__text'>{c?.name}</p>
                                         </a>
                                     )
@@ -48,7 +48,7 @@ function ElectronicTopCategories({category}) {
                                {mini?.slice(4,6)?.map((cc)=>{
                                 return(
                                     <a href={`/category/${cc?.slug}-${cc?.id}`} className="category__content">
-                                    <img className='category__img_' src={`${cc?.imageUrl}`} alt="" />
+                                    <img className='category__img_' src={`${cc?.imagePath}`} alt="" />
                                     <p className='category__text'>{cc?.name}</p>
                                     </a>
                                 )

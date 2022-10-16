@@ -9,7 +9,7 @@ const ProductOnCart = ({ product, children }) => {
         <div className="ps-product--cart-mobile">
             <div className="ps-product__thumbnail">
                 <Link href="/product/[pid]" as={`/product/${product.slug}`}>
-                    <img src={product.mainImageUrl} alt="" />
+                    <img src={product.imagePath} alt="" />
                 </Link>
             </div>
             <div className="ps-product__content">

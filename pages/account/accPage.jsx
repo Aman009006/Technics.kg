@@ -133,9 +133,9 @@ function accPage(){
                  return(<div className="block__order_">
                         <p className="order__time">{ord?.createdAt}</p>
                         <div className="orders">
-                            {ord?.products.map((item)=>{
+                            {ord?.orderItems?.map((item)=>{
                                 return(
-                                    <ProductOrder product={item} />
+                                    <ProductOrder product={item.product} />
                                 )
                             })}
                         </div>

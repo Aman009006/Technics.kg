@@ -31,7 +31,7 @@ const HomeElectronicsPage = () => {
                 headers: headers,
             })
             .then((response) => {
-                setCategor(response.data['hydra:member'][1].data)
+                setCategor(response.data['hydra:member'][0].categories)
             })
             .catch((error) => {
                 console.log(error);

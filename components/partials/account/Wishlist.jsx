@@ -10,7 +10,6 @@ const Wishlist = ({ ecomerce }) => {
     const { addItem, removeItem } = useEcomerce();
 
     function handleAddItemToCart(product) {
-        console.log(product);
         let authToken = localStorage.getItem('authToken');
         const options = {
             url: `${config.mainUrl}cart`,
@@ -27,7 +26,7 @@ const Wishlist = ({ ecomerce }) => {
 
         axios(options)
             .then((response) => {
-                console.log(response.status);
+                getWishlist();
             })
             .catch((err) => {
                 console.log(err);
@@ -36,10 +35,10 @@ const Wishlist = ({ ecomerce }) => {
     }
 
     function handleRemoveWishlistItem(e, product) {
+        getWishlist();
         sendToFavorites(product);
     }
     function sendToFavorites(product) {
-        console.log(product);
         let authToken = localStorage.getItem('authToken');
         const options = {
             url: `${config.mainUrl}wish_list`,
@@ -70,6 +69,10 @@ const Wishlist = ({ ecomerce }) => {
     const [products, setProducts] = useState();
 
     useEffect(() => {
+        getWishlist();
+    }, []);
+
+    function getWishlist() {
         let authToken = localStorage.getItem('authToken');
         const headers = {
             'api-token': config.apiToken,
@@ -86,15 +89,13 @@ const Wishlist = ({ ecomerce }) => {
             .catch((error) => {
                 console.log(error);
             });
-    }, [products]);
-
-
+    }
 
     let cartItemsViews;
     if (products && products.length > 0) {
         const items = products?.map((item, index) => {
             return (
-                <tr className='wish__tr' key={item?.id}>
+                <tr className="wish__tr" key={item?.id}>
                     <td>
                         <ProductCart product={item?.product} />
                     </td>
@@ -102,14 +103,14 @@ const Wishlist = ({ ecomerce }) => {
                         {item?.product.price} сом
                     </td>
                     <td>
-                        <div className='df al'>
+                        <div className="df al">
                             <a
                                 className="ps-btn w100"
                                 href="#"
                                 onClick={() =>
                                     handleAddItemToCart(item.product)
                                 }>
-                                <span className='imsort'>B корзину</span>
+                                <span className="imsort">B корзину</span>
                             </a>
 
                             <a
@@ -129,11 +130,11 @@ const Wishlist = ({ ecomerce }) => {
             <>
                 <table className="table  ps-table--shopping-cart ps-table--responsive">
                     <thead>
-                        <tr className='w120'>
+                        <tr className="w120">
                             <th>Ваши товары</th>
                         </tr>
                     </thead>
-                    <tbody className=''>{items}</tbody>
+                    <tbody className="">{items}</tbody>
                 </table>
             </>
         );

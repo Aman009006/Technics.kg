@@ -37,7 +37,7 @@ const HeaderActions = ({ ecomerce, auth }) => {
             .catch((error) => {
                 console.log(error);
             });
-    }, [compareItems]);
+    }, []);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);

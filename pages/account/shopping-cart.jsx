@@ -10,8 +10,7 @@ import Link from 'next/link';
 import ModuleCartSummary from '~/components/ecomerce/modules/ModuleCartSummary';
 import axios from 'axios';
 import ModalOrder from './ModalOrder';
-import {config} from "~/config";
-
+import { config } from '~/config';
 
 const ShoppingCartScreen = ({ ecomerce }) => {
     const { getProducts } = useEcomerce();
@@ -24,6 +23,10 @@ const ShoppingCartScreen = ({ ecomerce }) => {
     const [totalProductsPrice, setTotalProductsPrice] = useState(0);
 
     useEffect(() => {
+        getProductsList();
+    }, []);
+
+    function getProductsList() {
         let authToken = localStorage.getItem('authToken');
         const headers = {
             'api-token': config.apiToken,
@@ -36,24 +39,21 @@ const ShoppingCartScreen = ({ ecomerce }) => {
             })
             .then((response) => {
                 setProducts(response?.data['hydra:member']);
-               
             })
             .catch((error) => {
                 console.log(error);
             });
-    }, []);
-    
-    useEffect(()=>{
+    }
+
+    useEffect(() => {
         setTotalProductsPrice(
             products?.reduce(
-                (count, product) => count + product.product.count * product.product.price,
+                (count, product) =>
+                    count + product.count * product.product.price,
                 0
             )
         );
-    })
-
-    console.log(totalProductsPrice,'bnjuj');
-
+    });
 
     useEffect(() => {
         if (ecomerce.cartItems) {
@@ -78,7 +78,10 @@ const ShoppingCartScreen = ({ ecomerce }) => {
             contentView = (
                 <>
                     <div className="ps-section__content">
-                        <ModuleEcomerceCartItems cartItems={products} />
+                        <ModuleEcomerceCartItems
+                            getProducts={() => getProductsList()}
+                            cartItems={products}
+                        />
                         <div className="total__price">
                             <p>Итого:</p>
                             {totalProductsPrice} сом

@@ -1,4 +1,4 @@
 export const config= {
-    mainUrl: "https://docs.stores.kg/api/",
-    apiToken: "cc6e6ee805e3afdd6f1959f127555081"
+    mainUrl: "https://test-docs.stores.kg/api/",
+    apiToken: "a9624f91324d95a80406de6c68665798"
 } 

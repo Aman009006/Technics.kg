@@ -56,7 +56,6 @@ const PartialSpecification = ({ product }) => {
 
         axios(options)
             .then((response) => {
-                console.log(response.status);
     })
             .catch((err) => {
                 console.log(err);

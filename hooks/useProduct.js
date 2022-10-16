@@ -51,7 +51,7 @@ export default function useProduct() {
                         <>
                             <LazyLoad>
                                 <img
-                                    src={getImageURL(payload.mainImageUrl)}
+                                    src={getImageURL(payload.imagePath)}
                                     alt={getImageURL(payload)}
                                 />
                             </LazyLoad>

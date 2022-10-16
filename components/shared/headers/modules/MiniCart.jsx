@@ -31,7 +31,6 @@ const MiniCart = ({ ecomerce }) => {
             })
     },[])
     function sendToBasket(item) {
-        console.log(item);
         let authToken = localStorage.getItem('authToken')
         const options = {
             url: `${config.mainUrl}cart`,
@@ -48,7 +47,6 @@ const MiniCart = ({ ecomerce }) => {
 
         axios(options)
             .then((response) => {
-                console.log(response.status);
             })
             .catch((err) => {
                 console.log(err);
